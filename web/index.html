@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Password generator</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Password generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<main>
-  <h1>Password generator</h1>
-  <p class="sub">Created in your browser. Nothing is sent or stored.</p>
+  <main>
+    <h1>"Password generator"</h1>
+    <p class="sub">Created in your browser. Nothing is sent or stored.</p>
 
-  <div class="output">
-    <div id="password" aria-live="polite" aria-label="Generated password"></div>
-    <button type="button" class="copy" id="copy">Copy</button>
-  </div>
+    <div class="output">
+      <div id="password" aria-live="polite" aria-label="Generated password"></div>
+      <button type="button" class="copy" id="copy">Copy</button>
+    </div>
 
-  <div class="meter">
-    <div class="track"><div id="bar"></div></div>
-    <div class="meter-text"><span id="strength"></span><span id="entropy"></span></div>
-  </div>
+    <div class="meter">
+      <div class="track">
+        <div id="bar"></div>
+      </div>
+      <div class="meter-text"><span id="strength"></span><span id="entropy"></span></div>
+    </div>
 
-  <div class="row">
-    <label class="head" for="length">Length <span id="lengthVal">16</span></label>
-    <input type="range" id="length" min="8" max="64" value="16">
-  </div>
+    <div class="row">
+      <label class="head" for="length">Length <span id="lengthVal">16</span></label>
+      <input type="range" id="length" min="8" max="64" value="16">
+    </div>
 
-  <fieldset>
-    <legend>Include</legend>
-    <label><input type="checkbox" id="lower" checked> Lowercase</label>
-    <label><input type="checkbox" id="upper" checked> Uppercase</label>
-    <label><input type="checkbox" id="digits" checked> Numbers</label>
-    <label><input type="checkbox" id="symbols" checked> Symbols</label>
-    <label class="full"><input type="checkbox" id="ambiguous"> Skip look-alike characters (0, O, 1, l, I, |)</label>
-  </fieldset>
+    <fieldset>
+      <legend>Include</legend>
+      <label><input type="checkbox" id="lower" checked> Lowercase</label>
+      <label><input type="checkbox" id="upper" checked> Uppercase</label>
+      <label><input type="checkbox" id="digits" checked> Numbers</label>
+      <label><input type="checkbox" id="symbols" checked> Symbols</label>
+      <label class="full"><input type="checkbox" id="ambiguous"> Skip look-alike characters (0, O, 1, l, I, |)</label>
+    </fieldset>
 
-  <fieldset class="custom">
-    <legend>Customize</legend>
-    <label class="field full">Keyword to include (optional)
-      <input type="text" id="keyword" maxlength="20" autocomplete="off" spellcheck="false" placeholder="A word you want to keep">
-    </label>
-    <p class="note full">A keyword is easier to remember but weaker. Strength counts only the random part.</p>
-    <label class="field">Symbols to use
-      <input type="text" id="customSymbols" autocomplete="off" spellcheck="false" placeholder="!@#$%^&amp;*">
-    </label>
-    <label class="field">Characters to exclude
-      <input type="text" id="exclude" autocomplete="off" spellcheck="false" placeholder="e.g. {}[]">
-    </label>
-    <label class="full"><input type="checkbox" id="startLetter"> Start with a letter</label>
-    <label class="full"><input type="checkbox" id="norepeat"> No repeated characters</label>
-  </fieldset>
+    <fieldset class="custom">
+      <legend>Customize</legend>
+      <label class="field full">Keyword to include (optional)
+        <input type="text" id="keyword" maxlength="20" autocomplete="off" spellcheck="false"
+          placeholder="A word you want to keep">
+      </label>
+      <p class="note full">A keyword is easier to remember but weaker. Strength counts only the random part.</p>
+      <label class="field">Symbols to use
+        <input type="text" id="customSymbols" autocomplete="off" spellcheck="false" placeholder="!@#$%^&amp;*">
+      </label>
+      <label class="field">Characters to exclude
+        <input type="text" id="exclude" autocomplete="off" spellcheck="false" placeholder="e.g. {}[]">
+      </label>
+      <label class="full"><input type="checkbox" id="startLetter"> Start with a letter</label>
+      <label class="full"><input type="checkbox" id="norepeat"> No repeated characters</label>
+    </fieldset>
 
-  <p id="msg" role="alert"></p>
-  <button type="button" class="primary" id="generate">Generate new password</button>
-  <p class="note">Uses the browser's secure random generator (crypto.getRandomValues).</p>
-</main>
+    <p id="msg" role="alert"></p>
+    <button type="button" class="primary" id="generate">Generate new password</button>
+    <p class="note">Uses the browser's secure random generator (crypto.getRandomValues).</p>
+  </main>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
