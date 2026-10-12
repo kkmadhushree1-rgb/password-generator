@@ -1,0 +1,132 @@
+  :root {
+    --bg: #e9edf0;
+    --panel: #ffffff;
+    --ink: #14202b;
+    --muted: #5b6b78;
+    --line: #cdd5db;
+    --accent: #1f5f8b;
+    --digit: #1f5f8b;
+    --symbol: #b4570a;
+    --weak: #b3261e;
+    --fair: #b4570a;
+    --strong: #2f7d4f;
+    --track: #dde3e8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10181f;
+      --panel: #1a252f;
+      --ink: #e6edf2;
+      --muted: #93a3b0;
+      --line: #2f3d49;
+      --accent: #6db3e0;
+      --digit: #6db3e0;
+      --symbol: #f0a45d;
+      --weak: #f2877f;
+      --fair: #f0a45d;
+      --strong: #6fcf97;
+      --track: #2a3946;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+  }
+  main {
+    width: 100%;
+    max-width: 520px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; font-weight: 650; }
+  .sub { margin: 0 0 22px; color: var(--muted); font-size: .92rem; }
+
+  .output {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+  }
+  #password {
+    flex: 1;
+    min-height: 64px;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-family: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: .04em;
+    word-break: break-all;
+    background: var(--bg);
+    user-select: all;
+  }
+  #password .d { color: var(--digit); }
+  #password .s { color: var(--symbol); }
+
+  button {
+    font: inherit;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--ink);
+    padding: 0 16px;
+  }
+  button:hover { border-color: var(--accent); }
+  button.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    height: 46px;
+    margin-top: 22px;
+  }
+  @media (prefers-color-scheme: dark) { button.primary { color: #10181f; } }
+  button:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .meter { margin-top: 14px; }
+  .track { height: 6px; background: var(--track); border-radius: 3px; overflow: hidden; }
+  #bar { height: 100%; width: 0; background: var(--weak); transition: width .2s, background .2s; }
+  .meter-text { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); margin-top: 6px; }
+  #strength { font-weight: 600; }
+
+  .row { margin-top: 24px; }
+  .row label.head { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; }
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+  fieldset { border: 0; padding: 0; margin: 22px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+  legend { font-weight: 600; padding: 0; margin-bottom: 10px; }
+  fieldset label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); }
+  .full { grid-column: 1 / -1; }
+
+  input[type="text"] {
+    width: 100%;
+    margin-top: 6px;
+    padding: 9px 11px;
+    font: inherit;
+    font-family: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+  .field { display: block; font-size: .9rem; }
+  fieldset.custom { border-top: 1px solid var(--line); padding-top: 20px; }
+  fieldset.custom .note { margin: 0; }
+  #msg { min-height: 1.2em; margin: 14px 0 0; font-size: .88rem; color: var(--weak); }
+  .note { margin: 6px 0 0; font-size: .8rem; color: var(--muted); }
+  @media (max-width: 420px) { .output { flex-direction: column; } button.copy { height: 42px; } }
