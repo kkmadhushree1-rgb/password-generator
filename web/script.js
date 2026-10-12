@@ -129,13 +129,13 @@
       var r = document.createRange();
       r.selectNodeContents($("password"));
       var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
-      try { document.execCommand("copy"); done(); } catch (e) {}
+      try { document.execCommand("copy"); done(); } catch (e) { }
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(pw).then(done, fallback);
     } else { fallback(); }
   }
-
+  //"cHANGES//"
   $("length").addEventListener("input", function () {
     $("lengthVal").textContent = this.value;
     generate();
